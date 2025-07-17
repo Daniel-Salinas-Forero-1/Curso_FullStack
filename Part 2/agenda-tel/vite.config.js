@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    port: 10000,
     host: '0.0.0.0',
-    port: process.env.PORT || 5173
-  }
+    allowedHosts: ['curso-fullstack-qrz4.onrender.com'],
+  },
 })
