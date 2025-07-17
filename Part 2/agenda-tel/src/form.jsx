@@ -29,34 +29,34 @@ const AddPerson = (event , persons,newName,newNumber, setNewName,setNewNumber,se
     const newId = persons.length > 0 ? Math.max(...persons.map(p => Number(p.id))) + 1 : 1
 
     if (nameExists) {
-    const confirmUpdate = window.confirm(`¿Quieres modificar el número de ${newName}?`)
-    if (confirmUpdate) {
+      const confirmUpdate = window.confirm(`¿Quieres modificar el número de ${newName}?`)
+      if (confirmUpdate) {
 
-        const personToUpdate = persons.find(p => p.name === newName)
-        if (!personToUpdate) {
-        alert("No se encontró el contacto para actualizar")
-        return
-        }
-        
-        const updatedPerson = { ...personToUpdate, number: newNumber }
+          const personToUpdate = persons.find(p => p.name === newName)
+          if (!personToUpdate) {
+          alert("No se encontró el contacto para actualizar")
+          return
+          }
+          
+          const updatedPerson = { ...personToUpdate, number: newNumber }
 
-    personsService
-      .update(personToUpdate.id, updatedPerson)
-      .then(returnedPerson => {
-        setPersons(persons.map(p => (p.id !== personToUpdate.id ? p : returnedPerson)))
-        setNewName('')
-        setNewNumber('')
-        setErrorMessage(`'${personObject.name}' was created in agenda`)
-        setTimeout(() => {
-          setErrorMessage(null)
-        }, 5000)
-      })
-      .catch(error => {
-        console.log("Error actualizando", error)
-      })
-    } else {
-    return
-    }
+      personsService
+        .update(personToUpdate.id, updatedPerson)
+        .then(returnedPerson => {
+          setPersons(persons.map(p => (p.id !== personToUpdate.id ? p : returnedPerson)))
+          setNewName('')
+          setNewNumber('')
+          setErrorMessage(`'${personObject.name}' was created in agenda`)
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
+        })
+        .catch(error => {
+          console.log("Error actualizando", error)
+        })
+      } else {
+      return
+      }
     }
 
 
