@@ -8,7 +8,7 @@ const app = express()
 app.use(cors());
 app.use(express.json())
 app.use(morgan('tiny'))
-
+app.use(express.static('dist'))
 let persons = [
     { 
       "id": 1,
@@ -73,11 +73,13 @@ const generateId = () => {
 
 app.post('/api/persons', (request, response) => {
   const body = request.body
-  const nameExists = persons.some(person => person.name === body)
+  
+  const nameExists = persons.some(person => person.name.toLowerCase() === body.name?.toLowerCase());
 
-  if (!body.name || !body.name) {
+
+  if (!body.name || !body.number) {
     return response.status(400).json({ 
-      error: 'content missing' 
+      error: 'name or number is missing' 
     })
   }
   

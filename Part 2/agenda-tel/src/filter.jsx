@@ -16,10 +16,10 @@ const Filter = ( {persons} ) => {
     
     const filtered = Array.isArray(persons)
     ? persons.filter(person =>
+        typeof person.name === 'string' &&
         person.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    : []
-
+        )
+  : [];
     
 
     return(
