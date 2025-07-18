@@ -8,7 +8,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "cd ../../Part\\ 2/agenda-tel && npm install && npm run build && cp -r dist public"
+    "build:ui": "cd ../../Part\\ 2/agenda-tel && npm install && npm run build && cp -r dist ../../Part\\ 3/agenda-tel/"
 
   },
   "author": "Matti Luukkainen",
