@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "cd \"Curso_FullStack/Part 2/agenda-tel\" && npm install && npm run build && cp -r dist \"../../../Curso_FullStack/Part 3/agenda-tel/public\""
+
   },
   "author": "Matti Luukkainen",
   "license": "MIT",
